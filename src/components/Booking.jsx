@@ -167,12 +167,9 @@ const Booking = ({ onBack }) => {
         successMessage += `Your booking ID is: ${result.bookingId}`;
         setSubmitMessage(successMessage);
 
-        // Reset form and close after success
+        // Don't auto-close anymore - let user close manually
+        // Reset form data but keep modal open
         setTimeout(() => {
-          setSubmitted(false);
-          setSubmitStatus(null);
-          setSubmitMessage("");
-          setBookingDetails(null);
           setFormData({
             name: "",
             email: "",
@@ -183,8 +180,7 @@ const Booking = ({ onBack }) => {
             preferredTime: "",
             message: "",
           });
-          onBack();
-        }, 5000); // Extended to 5 seconds for user to read details
+        }, 1000); // Just reset form after 1 second, but keep success screen
       } else {
         console.error("Booking error:", result.error);
         setSubmitStatus("error");
@@ -262,7 +258,7 @@ const Booking = ({ onBack }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="bg-gray-800/50 rounded-lg p-4 text-left"
+              className="bg-gray-800/50 rounded-lg !p-4 text-left"
             >
               <h3 className="text-lg font-semibold text-white !mb-3">
                 Booking Details:
@@ -297,7 +293,7 @@ const Booking = ({ onBack }) => {
               </div>
 
               {bookingDetails.calendly?.eventUrl && (
-                <div className="!mt-4 p-3 bg-blue-900/30 rounded border border-blue-500/30">
+                <div className="!mt-4 !p-3 bg-blue-900/30 rounded border border-blue-500/30">
                   <p className="text-blue-300 text-xs">
                     📅 Calendar event:{" "}
                     <a
@@ -315,6 +311,24 @@ const Booking = ({ onBack }) => {
           )}
         </div>
 
+        {submitStatus === "success" && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            onClick={() => {
+              setSubmitted(false);
+              setSubmitStatus(null);
+              setSubmitMessage("");
+              setBookingDetails(null);
+              onBack();
+            }}
+            className="bg-[#ff2c2c] hover:bg-[#ff2c2c]/90 text-white !px-8 !py-3 rounded-lg transition-colors font-semibold"
+          >
+            Close
+          </motion.button>
+        )}
+
         {submitStatus === "error" && (
           <motion.button
             initial={{ opacity: 0 }}
@@ -325,7 +339,7 @@ const Booking = ({ onBack }) => {
               setSubmitStatus(null);
               setSubmitMessage("");
             }}
-            className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors"
+            className="bg-red-600 hover:bg-red-700 text-white !px-6 !py-2 rounded-lg transition-colors"
           >
             Try Again
           </motion.button>
@@ -355,8 +369,8 @@ const Booking = ({ onBack }) => {
 
       {/* Form Container with proper scrolling */}
       <div
-        className="flex-1 overflow-y-auto !p-6"
-        style={{ maxHeight: "calc(100vh - 140px)" }}
+        className="flex-1 overflow-y-auto !p-3"
+        style={{ maxHeight: "calc(90vh - 140px)" }}
       >
         <form
           onSubmit={handleSubmit}
@@ -444,7 +458,7 @@ const Booking = ({ onBack }) => {
                 <SelectTrigger className="w-full h-11 !px-4 !py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-[#ff2c2c] focus:ring-1 focus:ring-[#ff2c2c] transition-all outline-none focus:outline-none">
                   <SelectValue placeholder="Select service type" />
                 </SelectTrigger>
-                <SelectContent className="bg-black border border-white/20">
+                <SelectContent className="bg-black border border-white/20 z-[80]">
                   {serviceTypes.map((service) => (
                     <SelectItem
                       key={service}
@@ -501,7 +515,7 @@ const Booking = ({ onBack }) => {
                         !formData.preferredDate && "text-gray-400"
                       }`}
                     >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      <CalendarIcon className="!mr-2 h-4 w-4" />
                       {formData.preferredDate ? (
                         format(formData.preferredDate, "PPP")
                       ) : (
@@ -510,8 +524,10 @@ const Booking = ({ onBack }) => {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent
-                    className="w-auto p-0 bg-black border border-white/20"
+                    className="w-auto !p-0 bg-black border border-white/20 z-[80]"
                     align="start"
+                    sideOffset={5}
+                    onOpenAutoFocus={(e) => e.preventDefault()}
                   >
                     <Calendar
                       mode="single"
@@ -548,7 +564,7 @@ const Booking = ({ onBack }) => {
                     <SelectTrigger className="w-full h-11 !px-4 !py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-[#ff2c2c] focus:ring-1 focus:ring-[#ff2c2c] transition-all outline-none focus:outline-none">
                       <SelectValue placeholder="Select time" />
                     </SelectTrigger>
-                    <SelectContent className="bg-black border border-white/20">
+                    <SelectContent className="bg-black border border-white/20 z-[80]">
                       {getTimeSlots(formData.preferredDate).map((time) => (
                         <SelectItem
                           key={time}

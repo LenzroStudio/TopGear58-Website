@@ -63,7 +63,7 @@ const Navbar = () => {
       <div className="md:hidden bg-black/30 backdrop-blur-2xl text-white fixed z-50 w-full">
         <div className="!p-[1rem] flex items-center justify-between">
           <div className="flex items-center justify-center">
-            <Image src={t_logo} alt="Website logo" className="w-[30vw]" />
+            <Image src={t_logo} alt="Website logo" className="w-[42vw]" />
           </div>
           <div>
             <button
@@ -215,9 +215,9 @@ const Navbar = () => {
               }}
               className="fixed inset-0 z-[70] hidden md:flex items-center justify-center p-4"
             >
-              <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl border border-gray-700/50 w-full max-w-4xl max-h-[90vh] overflow-hidden">
+              <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl border border-gray-700/50 w-full max-w-4xl max-h-[90vh] flex flex-col">
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-gray-700/50 bg-gradient-to-r from-red-900/20 to-gray-900/20">
+                <div className="flex items-center justify-between p-6 border-b border-gray-700/50 bg-gradient-to-r from-red-900/20 to-gray-900/20 flex-shrink-0">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
                       <svg
@@ -264,7 +264,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Booking Form Content */}
-                <div className="h-[calc(90vh-120px)] overflow-hidden">
+                <div className="flex-1 min-h-0">
                   <Booking onBack={() => setShowBooking(false)} />
                 </div>
               </div>
