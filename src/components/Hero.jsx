@@ -84,12 +84,49 @@ const Hero = () => {
       {/* small screen size */}
       <div className="flex md:hidden h-screen w-full relative">
         <Image
-          src={hero_img}
+          src={hero_sm_img}
           alt="Hero Image"
           layout="fill"
           objectFit="cover"
           className="absolute "
         />
+        <div className="absolute top-20  inset-0 flex flex-col gap-[1rem] items-center justify-center z-10">
+          <p className="text-white text-[40px] text-center">
+            Driven by Trust , <br /> Powered by Care
+          </p>
+          <p className="text-gray-300 text-center text-xs w-[70%] max-w-[60%]">
+            Fifty eight years in the making , TopGear58 is more than an auto
+            repair company, its an investment to protect your vehicle.
+          </p>
+          {/* engine */}
+          <div
+            className={`flex flex-col  items-center text-white w-[80px] h-[80px] border-2 
+                        ${
+                          engineStatus === "START"
+                            ? "border-red-900"
+                            : "border-green-900"
+                        }
+                            bg-gray-950 cursor-pointer rounded-full justify-center gap-4  !mt-5 transition-all duration-700`}
+            onClick={engineControls}
+          >
+            <div
+              className={`w-7 h-1 rounded-full ${
+                engineStatus === "START" ? "bg-red-500" : "bg-green-500"
+              } duration-700 transition-all`}
+            ></div>
+            <p className="flex flex-col items-center leading-3 text-xs text-gray-400 duration-700 transition-all">
+              {engineStatus}
+              <span className="text-xs">ENGINE</span>
+            </p>
+          </div>
+          <p
+            className={`!p-2 text-sm  ${
+              engineStatus === "START" ? " text-red-500" : " text-green-500"
+            } duration-700 transition-all`}
+          >
+            LISTEN TO A HEALTHY ENGINE
+          </p>
+        </div>
       </div>
     </div>
   );

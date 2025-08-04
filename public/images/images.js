@@ -1,6 +1,6 @@
 import t_logo from "../images/top_gear_logo.png";
 import hero_img from "../images/Hero_img.jpg";
-import hero_sm_img from "../images/Hero_sm.jpg";
+import hero_sm_img from "../images/sm_Hero.jpg";
 
 export { 
     t_logo,
