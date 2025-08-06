@@ -46,7 +46,7 @@
 
 body{
   font-family: var(--font-poppins);
-  /* user-select: none; */
+  user-select: none;
 }
 
 ::-webkit-scrollbar{

@@ -160,8 +160,19 @@ const Navbar = () => {
                           </Button>
                         </motion.div>
                         {/* Location Card styled like the yellow zip code card, but with location content */}
-                        <div
-                          className="bg-white w-screen h-[80vh] rounded-tl-4xl rounded-tr-none rounded-br-none rounded-bl-none mt-8 overflow-hidden flex flex-col relative"
+                        {/* Location Card styled like the yellow zip code card, but with location content */}
+                        <motion.div
+                          key="location-card"
+                          initial={{ y: 80, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{ y: 80, opacity: 0 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 60,
+                            delay: 1.00, // This delay should match or slightly exceed the side menu's slide-in duration
+                          }}
+                          className="bg-white w-screen h-[68vh] rounded-tl-4xl rounded-tr-none rounded-br-none rounded-bl-none mt-8 overflow-hidden flex flex-col relative"
                           style={{
                             marginLeft: "-24px",
                             marginRight: "-24px",
@@ -169,14 +180,14 @@ const Navbar = () => {
                           }}
                         >
                           <div className="p-0">
-                            <div className="bg-yellow-400 w-full px-8 pt-4 pb-2">
+                            <div className="bg-yellow-400 w-full px-8 py-[1.25rem]">
                               <h3 className="font-bold text-sm text-gray-900">
                                 Find Our Location
                               </h3>
                             </div>
-                            <div className=" w-full">
+                            <div className="w-full">
                               {/* Embedded Map */}
-                              <div className="w-full  overflow-hidden mb-2">
+                              <div className="w-full overflow-hidden mb-2">
                                 <iframe
                                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d34569.80672527318!2d36.8380108!3d-1.2792793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11a66a8b5077%3A0x52d611a099b8730e!2sTopGear58!5e1!3m2!1sen!2ske!4v1754471731476!5m2!1sen!2ske"
                                   width="100%"
@@ -185,17 +196,18 @@ const Navbar = () => {
                                   allowFullScreen=""
                                   loading="lazy"
                                   referrerPolicy="no-referrer-when-downgrade"
-                                  referrerpolicy="no-referrer-when-downgrade"
                                 ></iframe>
                               </div>
                               {/* Socials */}
-                              <div className="flex flex-col gap-0.5 mt-2 !px-6 text-black">
+                              <div className="flex flex-col gap-0.5 mt-2 !py-7 !px-6 text-black">
+                                {/* TikTok */}
                                 <a
                                   href="https://www.tiktok.com/@topgear58"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs  "
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs"
                                 >
+                                  {/* TikTok Icon SVG */}
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width={24}
@@ -203,17 +215,18 @@ const Navbar = () => {
                                     fill={"#000000"}
                                     viewBox="0 0 24 24"
                                   >
-                                    {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
                                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 3 3 0 0 1 .88.13V9.4a7 7 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a5 5 0 0 1-1-.1z"></path>
                                   </svg>
                                   TikTok
                                 </a>
+                                {/* Instagram */}
                                 <a
                                   href="https://www.instagram.com/topgear58"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs  "
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs"
                                 >
+                                  {/* Instagram Icon SVG */}
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width={24}
@@ -221,17 +234,17 @@ const Navbar = () => {
                                     fill={"#000000"}
                                     viewBox="0 0 24 24"
                                   >
-                                    {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
                                     <path d="M20.947 8.305a6.5 6.5 0 0 0-.419-2.216 4.6 4.6 0 0 0-2.633-2.633 6.6 6.6 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.6 6.6 0 0 0-2.185.42 4.6 4.6 0 0 0-2.633 2.633 6.6 6.6 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.6 4.6 0 0 0 2.634 2.632 6.6 6.6 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.6 6.6 0 0 0 2.186-.419 4.62 4.62 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187.043-.962.056-1.267.056-3.71-.002-2.442-.002-2.752-.058-3.709m-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246m4.807-8.339a1.077 1.077 0 0 1-1.078-1.078 1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078"></path>
                                     <path d="M11.994 8.976a3.003 3.003 0 1 0 0 6.006 3.003 3.003 0 1 0 0-6.006"></path>
                                   </svg>
                                   Instagram
                                 </a>
+                                {/* Twitter */}
                                 <a
                                   href="https://twitter.com/topgear58"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-sm  "
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-sm"
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -240,7 +253,6 @@ const Navbar = () => {
                                     fill={"#000000"}
                                     viewBox="0 0 24 24"
                                   >
-                                    {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
                                     <path d="M13.68 10.62 20.24 3h-1.55L13 9.62 8.45 3H3.19l6.88 10.01L3.19 21h1.55l6.01-6.99 4.8 6.99h5.24l-7.13-10.38Zm-2.13 2.47-.7-1-5.54-7.93H7.7l4.47 6.4.7 1 5.82 8.32H16.3z"></path>
                                   </svg>
                                   Twitter
@@ -248,7 +260,7 @@ const Navbar = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </motion.div>
                     )}
                   </AnimatePresence>
