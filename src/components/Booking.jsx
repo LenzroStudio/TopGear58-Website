@@ -369,7 +369,7 @@ const Booking = ({ onBack }) => {
 
       {/* Form Container with proper scrolling */}
       <div
-        className="flex-1 overflow-y-auto !p-3"
+        className="flex-1 overflow-y-scroll !p-3"
         style={{ maxHeight: "calc(90vh - 140px)" }}
       >
         <form

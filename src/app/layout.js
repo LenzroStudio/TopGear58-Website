@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { Geist_Mono, Outfit, Poiret_One } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "sonner";
@@ -8,9 +8,10 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poiret = Poiret_One({
+  variable: "--font-poiret",
   subsets: ["latin"],
+  weight:"400"
 });
 
 const geistMono = Geist_Mono({
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="root">
       <body
-        className={`${outfit.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${outfit.variable} ${poiret.variable} ${geistMono.variable} antialiased`}
       >
         <Toaster richColors position="bottom-center"/>
         <Navbar/>

@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <div>
       {/* desktop navbar */}
-      <div className="hidden md:grid grid-cols-3 !py-[1rem] !px-[3%] bg-black/30 backdrop-blur-2xl text-white fixed z-50 w-full">
+      <div className="hidden md:grid grid-cols-3 !py-[1rem] !px-[3%] bg-black/90 backdrop-blur-2xl text-white fixed z-50 w-full">
         {/* navlinks */}
         <div className="flex items-center justify-start gap-[3rem]">
           {navlinks.map((item, index) => (
@@ -69,7 +69,7 @@ const Navbar = () => {
             <button
               onClick={() => setStatus((prev) => !prev)}
               aria-label={Menustatus ? "Close menu" : "Open menu"}
-              className="relative z-50 flex items-center justify-center w-10 h-10 border border-white/30 rounded-full"
+              className="relative z-50 flex items-center justify-center w-10 h-10"
             >
               <div
                 className={`absolute left-1/2 top-1/2 w-5 h-0.5 bg-white rounded transition-all duration-300 ${
@@ -192,16 +192,6 @@ const Navbar = () => {
       <AnimatePresence>
         {showBooking && (
           <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] hidden md:block"
-              onClick={() => setShowBooking(false)}
-            />
-
             {/* Modal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -213,9 +203,9 @@ const Navbar = () => {
                 damping: 30,
                 duration: 0.4,
               }}
-              className="fixed inset-0 z-[70] hidden md:flex items-center justify-center p-4"
+              className="fixed left-0 top-[68px] w-full h-[calc(100vh-68px)] z-[70] hidden md:flex bg-black"
             >
-              <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl border border-gray-700/50 w-full max-w-4xl max-h-[90vh] flex flex-col">
+              <div className="bg-black w-screen max-h-[90vh] flex flex-col">
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-700/50 bg-gradient-to-r from-red-900/20 to-gray-900/20 flex-shrink-0">
                   <div className="flex items-center gap-4">

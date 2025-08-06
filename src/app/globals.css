@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Mozilla+Text:200,300,regular,500,600,700);
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -45,7 +46,21 @@
 
 body{
   font-family: var(--font-outfit);
+  /* user-select: none; */
 }
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+
+
+.mozilla-text{
+  font-family: "Mozilla Text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

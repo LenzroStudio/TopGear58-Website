@@ -81,33 +81,56 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      {/* small screen size */}
+      {/* small screen size - video background, image overlay on pause, text bottom-right */}
       <div className="flex md:hidden h-screen w-full relative">
-        <Image
-          src={hero_sm_img}
-          alt="Hero Image"
-          layout="fill"
-          objectFit="cover"
-          className="absolute "
-        />
-        <div className="absolute top-20  inset-0 flex flex-col gap-[1rem] items-center justify-center z-10">
-          <p className="text-white text-[40px] text-center">
+        {/* Video background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ zIndex: 0 }}
+          ref={audioRef} // for play/pause control
+        >
+          <source src="/videos/hero_vid.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Image overlay when paused */}
+        {engineStatus === "START" && (
+          <Image
+            src={hero_sm_img}
+            alt="Hero Image"
+            layout="fill"
+            objectFit="cover"
+            className="absolute inset-0 z-10"
+          />
+        )}
+        {/* Text and controls bottom-right */}
+        <div className="absolute bottom-6 right-4 flex flex-col gap-3 items-end z-20 w-[90vw] max-w-[95vw]">
+          <p className="text-white text-[28px] text-right leading-tight">
             Driven by Trust , <br /> Powered by Care
           </p>
-          <p className="text-gray-300 text-center text-xs w-[70%] max-w-[60%]">
+          <p className="text-gray-300 text-xs text-right w-full max-w-xs">
             Fifty eight years in the making , TopGear58 is more than an auto
             repair company, its an investment to protect your vehicle.
           </p>
           {/* engine */}
           <div
-            className={`flex flex-col  items-center text-white w-[80px] h-[80px] border-2 
-                        ${
-                          engineStatus === "START"
-                            ? "border-red-900"
-                            : "border-green-900"
-                        }
-                            bg-gray-950 cursor-pointer rounded-full justify-center gap-4  !mt-5 transition-all duration-700`}
-            onClick={engineControls}
+            className={`flex flex-col items-center text-white w-[80px] h-[80px] border-2 
+              ${
+                engineStatus === "START" ? "border-red-900" : "border-green-900"
+              }
+              bg-gray-950 cursor-pointer rounded-full justify-center gap-4 mt-3 transition-all duration-700`}
+            onClick={() => {
+              engineControls();
+              // Pause/play video
+              const video = audioRef.current;
+              if (video) {
+                if (engineStatus === "START") video.pause();
+                else video.play();
+              }
+            }}
           >
             <div
               className={`w-7 h-1 rounded-full ${
