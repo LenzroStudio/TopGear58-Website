@@ -7,7 +7,7 @@ import { t_logo } from "../../public/images/images";
 import { Button } from "./ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import Booking from "./Booking";
-import { Instagram, Ticket, Twitter } from "lucide-react";
+import { Instagram, Music, Ticket, Twitter } from "lucide-react";
 const Navbar = () => {
   const [Menustatus, setStatus] = useState(false);
   const [showBooking, setShowBooking] = useState(false);
@@ -161,7 +161,7 @@ const Navbar = () => {
                         </motion.div>
                         {/* Location Card styled like the yellow zip code card, but with location content */}
                         <div
-                          className="bg-white w-screen h-[60vh] rounded-tl-3xl rounded-tr-none rounded-br-none rounded-bl-none mt-8 overflow-hidden flex flex-col relative"
+                          className="bg-white w-screen h-[60vh] rounded-tl-4xl rounded-tr-none rounded-br-none rounded-bl-none mt-8 overflow-hidden flex flex-col relative"
                           style={{
                             marginLeft: "-24px",
                             marginRight: "-24px",
@@ -174,9 +174,9 @@ const Navbar = () => {
                                 Find Our Location
                               </h3>
                             </div>
-                            <div className="bg-white w-full pb-2 pt-2">
+                            <div className="bg-gray-950 w-full">
                               {/* Embedded Map */}
-                              <div className="w-full rounded-lg overflow-hidden mb-2">
+                              <div className="w-full  overflow-hidden mb-2">
                                 <iframe
                                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d34569.80672527318!2d36.8380108!3d-1.2792793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11a66a8b5077%3A0x52d611a099b8730e!2sTopGear58!5e1!3m2!1sen!2ske!4v1754471731476!5m2!1sen!2ske"
                                   width="100%"
@@ -192,7 +192,7 @@ const Navbar = () => {
                                 href="https://maps.app.goo.gl/oJwayGU66snPJjig7"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block text-center text-black text-xs font-bold underline mt-2 mb-2"
+                                className="block text-center  text-xs font-bold underline mt-4 mb-2"
                               >
                                 Show Full Map
                               </a>
@@ -202,16 +202,16 @@ const Navbar = () => {
                                   href="https://www.tiktok.com/@topgear58"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs text-black hover:text-[#111]"
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs  "
                                 >
-                                  <Ticket />
+                                  <Music/>
                                   TikTok
                                 </a>
                                 <a
                                   href="https://www.instagram.com/topgear58"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs text-black hover:text-[#111]"
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs  "
                                 >
                                   <Instagram />
                                   Instagram
@@ -220,7 +220,7 @@ const Navbar = () => {
                                   href="https://twitter.com/topgear58"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-sm text-black hover:text-[#111]"
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-sm  "
                                 >
                                   <Twitter />
                                   Twitter

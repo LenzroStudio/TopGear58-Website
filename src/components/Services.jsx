@@ -27,7 +27,7 @@ const Services = () => {
 
   // Animation for section entrance
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <div className="bg-white text-black relative overflow-hidden">
@@ -92,9 +92,7 @@ const Services = () => {
                       if (currentIndex === services.length - 1) {
                         return `calc(50% - ${
                           services.length - 1 + 0.5
-                        } * ${cardWidth}px - ${
-                          services.length - 1
-                        } * ${gap}px)`;
+                        } * ${cardWidth}px - ${services.length - 1} * ${gap}px)`;
                       }
                       return `calc(50% - ${
                         currentIndex + 0.5
