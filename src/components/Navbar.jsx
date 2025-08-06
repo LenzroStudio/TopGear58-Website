@@ -7,6 +7,7 @@ import { t_logo } from "../../public/images/images";
 import { Button } from "./ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import Booking from "./Booking";
+import { Instagram, Ticket, Twitter } from "lucide-react";
 const Navbar = () => {
   const [Menustatus, setStatus] = useState(false);
   const [showBooking, setShowBooking] = useState(false);
@@ -43,7 +44,7 @@ const Navbar = () => {
           ))}
         </div>
         {/* logo */}
-        <Link href={'/'} className="flex items-center justify-center">
+        <Link href={"/"} className="flex items-center justify-center">
           <Image src={t_logo} alt="Website logo" className="w-[15vw]" />
         </Link>
         {/* booking button */}
@@ -62,7 +63,7 @@ const Navbar = () => {
       {/* Mobile navbar */}
       <div className="md:hidden bg-black/30 backdrop-blur-2xl text-white fixed z-50 w-full">
         <div className="!p-[1rem] flex items-center justify-between">
-          <Link href={'/'} className="flex items-center justify-center">
+          <Link href={"/"} className="flex items-center justify-center">
             <Image src={t_logo} alt="Website logo" className="w-[42vw]" />
           </Link>
           <div>
@@ -98,26 +99,19 @@ const Navbar = () => {
               transition={{ type: "spring", stiffness: 200, damping: 30 }}
               className="fixed top-0 right-0 h-screen w-full bg-black text-white z-50 shadow-lg"
             >
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-end !p-4">
+              <div className="flex flex-col h-full md:flex-row">
+                {/* Close button at top right of sidebar */}
+                <div className="absolute top-4 right-4 z-50">
                   <button
                     onClick={() => setStatus(false)}
                     aria-label="Close menu"
-                    className="relative z-50 flex items-center justify-center w-10 h-10 border border-white/30 rounded-full"
+                    className="flex items-center justify-center w-10 h-10 border border-white/30 rounded-full bg-black/60 hover:bg-black/80 transition"
                   >
                     <div className="absolute left-1/2 top-1/2 w-5 h-0.5 bg-white rounded rotate-45 -translate-x-1/2 -translate-y-1/2" />
                     <div className="absolute left-1/2 top-1/2 w-5 h-0.5 bg-white rounded -rotate-45 -translate-x-1/2 -translate-y-1/2" />
                   </button>
                 </div>
-                <motion.div
-                  className="flex flex-col items-start gap-6 !px-6 !mt-8"
-                  initial="hidden"
-                  animate="visible"
-                  variants={{
-                    visible: { transition: { staggerChildren: 0.12 } },
-                    hidden: {},
-                  }}
-                >
+                <div className="flex-1 flex flex-col items-start gap-6  !mt-8">
                   {/* Show booking form or menu items */}
                   <AnimatePresence mode="wait">
                     {showBooking ? (
@@ -125,7 +119,7 @@ const Navbar = () => {
                     ) : (
                       <motion.div
                         key="menu"
-                        className="flex flex-col gap-6 w-full"
+                        className="flex flex-col gap-6 w-full !px-6"
                         initial="hidden"
                         animate="visible"
                         variants={{
@@ -143,7 +137,7 @@ const Navbar = () => {
                           >
                             <Link
                               href={item.to}
-                              className="cursor-pointer text-lg"
+                              className="cursor-pointer text-lg "
                               onClick={() => setStatus(false)}
                             >
                               <p>{item.link}</p>
@@ -158,17 +152,88 @@ const Navbar = () => {
                         >
                           <Button
                             className={
-                              "rounded-none border border-[#ff2c2c] bg-black transition-all duration-500 cursor-pointer hover:border-white hover:text-black hover:bg-red-500 !mt-8"
+                              "rounded-none border border-[#ff2c2c] bg-black transition-all duration-500 cursor-pointer hover:border-white hover:text-black hover:bg-red-500 "
                             }
                             onClick={handleMobileBookingClick}
                           >
                             Book an Appointment
                           </Button>
                         </motion.div>
+                        {/* Location Card styled like the yellow zip code card, but with location content */}
+                        <div
+                          className="bg-white w-screen h-[60vh] rounded-tl-3xl rounded-tr-none rounded-br-none rounded-bl-none mt-8 overflow-hidden flex flex-col relative"
+                          style={{
+                            marginLeft: "-24px",
+                            marginRight: "-24px",
+                            marginBottom: "-24px",
+                          }}
+                        >
+                          <div className="p-0">
+                            <div className="bg-yellow-400 w-full px-4 pt-4 pb-2">
+                              <h3 className="font-bold text-gray-900">
+                                Find Our Location
+                              </h3>
+                            </div>
+                            <div className="bg-white w-full pb-2 pt-2">
+                              {/* Embedded Map */}
+                              <div className="w-full rounded-lg overflow-hidden mb-2">
+                                <iframe
+                                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d34569.80672527318!2d36.8380108!3d-1.2792793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11a66a8b5077%3A0x52d611a099b8730e!2sTopGear58!5e1!3m2!1sen!2ske!4v1754471731476!5m2!1sen!2ske"
+                                  width="100%"
+                                  height="100%"
+                                  style={{ border: 0 }}
+                                  allowFullScreen=""
+                                  loading="lazy"
+                                  referrerPolicy="no-referrer-when-downgrade"
+                                  referrerpolicy="no-referrer-when-downgrade"
+                                ></iframe>
+                              </div>
+                              <a
+                                href="https://www.google.com/maps/search/?api=1&query=9.05785,7.49508"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block text-center text-black text-xs font-bold underline mt-2 mb-2"
+                              >
+                                Show Full Map
+                              </a>
+                              {/* Socials */}
+                              <div className="flex flex-col gap-0.5 mt-2 !px-6">
+                                <a
+                                  href="https://www.tiktok.com/@topgear58"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs text-black hover:text-[#111]"
+                                >
+                                  <Ticket />
+                                  TikTok
+                                </a>
+                                <a
+                                  href="https://www.instagram.com/topgear58"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs text-black hover:text-[#111]"
+                                >
+                                  <Instagram />
+                                  Instagram
+                                </a>
+                                <a
+                                  href="https://twitter.com/topgear58"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-sm text-black hover:text-[#111]"
+                                >
+                                  <Twitter />
+                                  Twitter
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                </div>
+                {/* Removed duplicate close button at bottom right */}
               </div>
             </motion.div>
           )}
