@@ -161,7 +161,7 @@ const Navbar = () => {
                         </motion.div>
                         {/* Location Card styled like the yellow zip code card, but with location content */}
                         <div
-                          className="bg-white w-screen h-[60vh] rounded-tl-4xl rounded-tr-none rounded-br-none rounded-bl-none mt-8 overflow-hidden flex flex-col relative"
+                          className="bg-white w-screen h-[80vh] rounded-tl-4xl rounded-tr-none rounded-br-none rounded-bl-none mt-8 overflow-hidden flex flex-col relative"
                           style={{
                             marginLeft: "-24px",
                             marginRight: "-24px",
@@ -169,12 +169,12 @@ const Navbar = () => {
                           }}
                         >
                           <div className="p-0">
-                            <div className="bg-yellow-400 w-full px-4 pt-4 pb-2">
-                              <h3 className="font-bold text-gray-900">
+                            <div className="bg-yellow-400 w-full px-8 pt-4 pb-2">
+                              <h3 className="font-bold text-sm text-gray-900">
                                 Find Our Location
                               </h3>
                             </div>
-                            <div className="bg-gray-950 w-full">
+                            <div className=" w-full">
                               {/* Embedded Map */}
                               <div className="w-full  overflow-hidden mb-2">
                                 <iframe
@@ -188,23 +188,24 @@ const Navbar = () => {
                                   referrerpolicy="no-referrer-when-downgrade"
                                 ></iframe>
                               </div>
-                              <a
-                                href="https://maps.app.goo.gl/oJwayGU66snPJjig7"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block text-center  text-xs font-bold underline mt-4 mb-2"
-                              >
-                                Show Full Map
-                              </a>
                               {/* Socials */}
-                              <div className="flex flex-col gap-0.5 mt-2 !px-6">
+                              <div className="flex flex-col gap-0.5 mt-2 !px-6 text-black">
                                 <a
                                   href="https://www.tiktok.com/@topgear58"
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs  "
                                 >
-                                  <Music/>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={24}
+                                    height={24}
+                                    fill={"#000000"}
+                                    viewBox="0 0 24 24"
+                                  >
+                                    {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
+                                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 3 3 0 0 1 .88.13V9.4a7 7 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a5 5 0 0 1-1-.1z"></path>
+                                  </svg>
                                   TikTok
                                 </a>
                                 <a
@@ -213,7 +214,17 @@ const Navbar = () => {
                                   rel="noopener noreferrer"
                                   className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs  "
                                 >
-                                  <Instagram />
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={24}
+                                    height={24}
+                                    fill={"#000000"}
+                                    viewBox="0 0 24 24"
+                                  >
+                                    {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
+                                    <path d="M20.947 8.305a6.5 6.5 0 0 0-.419-2.216 4.6 4.6 0 0 0-2.633-2.633 6.6 6.6 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.6 6.6 0 0 0-2.185.42 4.6 4.6 0 0 0-2.633 2.633 6.6 6.6 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.6 4.6 0 0 0 2.634 2.632 6.6 6.6 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.6 6.6 0 0 0 2.186-.419 4.62 4.62 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187.043-.962.056-1.267.056-3.71-.002-2.442-.002-2.752-.058-3.709m-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246m4.807-8.339a1.077 1.077 0 0 1-1.078-1.078 1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078"></path>
+                                    <path d="M11.994 8.976a3.003 3.003 0 1 0 0 6.006 3.003 3.003 0 1 0 0-6.006"></path>
+                                  </svg>
                                   Instagram
                                 </a>
                                 <a
@@ -222,7 +233,16 @@ const Navbar = () => {
                                   rel="noopener noreferrer"
                                   className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-sm  "
                                 >
-                                  <Twitter />
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={24}
+                                    height={24}
+                                    fill={"#000000"}
+                                    viewBox="0 0 24 24"
+                                  >
+                                    {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
+                                    <path d="M13.68 10.62 20.24 3h-1.55L13 9.62 8.45 3H3.19l6.88 10.01L3.19 21h1.55l6.01-6.99 4.8 6.99h5.24l-7.13-10.38Zm-2.13 2.47-.7-1-5.54-7.93H7.7l4.47 6.4.7 1 5.82 8.32H16.3z"></path>
+                                  </svg>
                                   Twitter
                                 </a>
                               </div>
