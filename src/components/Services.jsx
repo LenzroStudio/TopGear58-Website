@@ -102,8 +102,8 @@ const Services = () => {
                   // --- Adjust spring config for smoother, less jumpy transition ---
                   transition={{
                     type: "spring",
-                    stiffness: 40,
-                    damping: 18,
+                    stiffness: 1000,
+                    damping: 50,
                     mass: 0.7,
                   }}
                   style={{ minWidth: "100%" }}

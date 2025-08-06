@@ -38,7 +38,7 @@ const Navbar = () => {
         {/* navlinks */}
         <div className="flex items-center justify-start gap-[3rem]">
           {navlinks.map((item, index) => (
-            <Link href={item.to} key={index} className="cursor-pointer">
+            <Link href={item.to} key={index} className="cursor-pointer hover:text-red-500 duration-600 transition-all">
               <p>{item.link}</p>
             </Link>
           ))}
@@ -51,7 +51,7 @@ const Navbar = () => {
         <div className="flex items-center justify-end ">
           <Button
             className={
-              "rounded-none border border-[#ff2c2c] bg-black transition-all duration-500 cursor-pointer hover:border-white hover:text-black hover:bg-red-500"
+              "rounded-full !px-5 bg-white border-white border text-black font-bold transition-all duration-500 cursor-pointer hover:bg-black hover:text-white"
             }
             onClick={handleBookingClick}
           >

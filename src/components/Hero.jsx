@@ -33,7 +33,7 @@ const Hero = () => {
             }
           }}
         >
-          <source src="/videos/hero_vid.mp4" type="video/mp4" />
+          <source src="/videos/HeroVid.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Image overlay when video is paused */}
