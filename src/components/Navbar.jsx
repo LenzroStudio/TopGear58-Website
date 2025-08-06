@@ -43,9 +43,9 @@ const Navbar = () => {
           ))}
         </div>
         {/* logo */}
-        <div className="flex items-center justify-center">
+        <Link href={'/'} className="flex items-center justify-center">
           <Image src={t_logo} alt="Website logo" className="w-[15vw]" />
-        </div>
+        </Link>
         {/* booking button */}
         <div className="flex items-center justify-end ">
           <Button
@@ -62,9 +62,9 @@ const Navbar = () => {
       {/* Mobile navbar */}
       <div className="md:hidden bg-black/30 backdrop-blur-2xl text-white fixed z-50 w-full">
         <div className="!p-[1rem] flex items-center justify-between">
-          <div className="flex items-center justify-center">
+          <Link href={'/'} className="flex items-center justify-center">
             <Image src={t_logo} alt="Website logo" className="w-[42vw]" />
-          </div>
+          </Link>
           <div>
             <button
               onClick={() => setStatus((prev) => !prev)}

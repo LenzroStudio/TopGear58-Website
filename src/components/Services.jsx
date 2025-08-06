@@ -1,8 +1,8 @@
 "use client";
 import { services } from "@/assets/assets";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Services = () => {
@@ -25,9 +25,16 @@ const Services = () => {
     return (currentIndex + 1) % services.length;
   };
 
+  // Animation for section entrance
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
     <div className="bg-white text-black relative overflow-hidden">
-      <div className="relative z-10 min-h-[80vh] md:min-h-[90vh] !px-[2.5%] md:!px-0 !pb-[5rem] !py-[8%] md:!py-[5%] flex flex-col items-center text-center justify-center gap-[2rem] md:gap-[5rem]">
+      <div
+        ref={ref}
+        className="relative z-10 min-h-[80vh] md:min-h-[90vh] !px-[2.5%] md:!px-0 !pb-[5rem] !py-[8%] md:!py-[5%] flex flex-col items-center text-center justify-center gap-[2rem] md:gap-[5rem]"
+      >
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,84 +47,87 @@ const Services = () => {
         {/* Carousel Container */}
         <div className="relative w-full  mx-auto">
           {/* Main Display Area */}
-          <div className="relative flex items-center justify-center h-[300px] md:h-[400px] w-full overflow-x-hidden">
-            <div className="relative w-full h-full overflow-hidden">
-              <motion.div
-                className="flex items-center h-full gap-4 md:gap-4 transition-transform"
-                // --- Enable drag/swipe for the carousel ---
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.18}
-                onDragEnd={(e, info) => {
-                  // --- Snap to nearest image on drag end ---
-                  const cardWidth = window.innerWidth < 768 ? 400 : 600;
-                  const gap = 16;
-                  const totalWidth = cardWidth + gap;
-                  // Calculate how many cards to move based on drag offset
-                  let moved = Math.round(-info.offset.x / totalWidth);
-                  let newIdx = currentIndex + moved;
-                  if (newIdx < 0) newIdx = 0;
-                  if (newIdx > services.length - 1)
-                    newIdx = services.length - 1;
-                  if (newIdx !== currentIndex) setCurrentIndex(newIdx);
-                }}
-                animate={{
-                  // --- Centering logic for smooth image alignment ---
-                  x: (() => {
-                    // --- Adjust these values to change image/card size and gap ---
-                    const cardWidth = 600; // md:w-[600px]
-                    const cardHeight = 380; // md:h-[380px]
-                    const gap = 16; // md:gap-4 = 1rem = 16px
-                    // For mobile, use 400 and 16 (gap-4 = 1rem = 16px)
-                    if (
-                      typeof window !== "undefined" &&
-                      window.innerWidth < 768
-                    ) {
+          <motion.div
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={inView ? { scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+          >
+            <div className="relative flex items-center justify-center h-[300px] md:h-[400px] w-full overflow-x-hidden">
+              <div className="relative w-full h-full overflow-hidden">
+                <motion.div
+                  className="flex items-center h-full gap-4 md:gap-4 transition-transform"
+                  // --- Enable drag/swipe for the carousel ---
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.18}
+                  onDragEnd={(e, info) => {
+                    // --- Snap to nearest image on drag end ---
+                    const cardWidth = window.innerWidth < 768 ? 400 : 600;
+                    const gap = 16;
+                    const totalWidth = cardWidth + gap;
+                    // Calculate how many cards to move based on drag offset
+                    let moved = Math.round(-info.offset.x / totalWidth);
+                    let newIdx = currentIndex + moved;
+                    if (newIdx < 0) newIdx = 0;
+                    if (newIdx > services.length - 1)
+                      newIdx = services.length - 1;
+                    if (newIdx !== currentIndex) setCurrentIndex(newIdx);
+                  }}
+                  animate={{
+                    // --- Centering logic for smooth image alignment ---
+                    x: (() => {
+                      const cardWidth = 600; // md:w-[600px]
+                      const gap = 16; // md:gap-4 = 1rem = 16px
+                      if (
+                        typeof window !== "undefined" &&
+                        window.innerWidth < 768
+                      ) {
+                        return `calc(50% - ${
+                          currentIndex + 0.5
+                        } * 400px - ${currentIndex} * 16px)`;
+                      }
+                      if (currentIndex === 0) {
+                        return `calc(50% - 0.5 * ${cardWidth}px)`;
+                      }
+                      if (currentIndex === services.length - 1) {
+                        return `calc(50% - ${
+                          services.length - 1 + 0.5
+                        } * ${cardWidth}px - ${services.length - 1} * ${gap}px)`;
+                      }
                       return `calc(50% - ${
                         currentIndex + 0.5
-                      } * 400px - ${currentIndex} * 16px)`;
-                    }
-                    if (currentIndex === 0) {
-                      return `calc(50% - 0.5 * ${cardWidth}px)`;
-                    }
-                    if (currentIndex === services.length - 1) {
-                      return `calc(50% - ${
-                        services.length - 1 + 0.5
-                      } * ${cardWidth}px - ${services.length - 1} * ${gap}px)`;
-                    }
-                    return `calc(50% - ${
-                      currentIndex + 0.5
-                    } * ${cardWidth}px - ${currentIndex} * ${gap}px)`;
-                  })(),
-                }}
-                // --- Adjust spring config for smoother, less jumpy transition ---
-                transition={{
-                  type: "spring",
-                  stiffness: 40,
-                  damping: 18,
-                  mass: 0.7,
-                }}
-                style={{ minWidth: "100%" }}
-              >
-                {services.map((service, idx) => (
-                  <div
-                    key={service.title + idx}
-                    // --- Adjust these classes to change image/card size ---
-                    className={`relative w-[400px] h-[260px] md:w-[600px] md:h-[380px] flex-shrink-0`}
-                    style={{ transition: "border 0.3s" }}
-                  >
-                    <Image
-                      src={service.img}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 400px, 600px"
-                    />
-                  </div>
-                ))}
-              </motion.div>
+                      } * ${cardWidth}px - ${currentIndex} * ${gap}px)`;
+                    })(),
+                  }}
+                  // --- Adjust spring config for smoother, less jumpy transition ---
+                  transition={{
+                    type: "spring",
+                    stiffness: 40,
+                    damping: 18,
+                    mass: 0.7,
+                  }}
+                  style={{ minWidth: "100%" }}
+                >
+                  {services.map((service, idx) => (
+                    <div
+                      key={service.title + idx}
+                      // --- Adjust these classes to change image/card size ---
+                      className={`relative w-[400px] h-[260px] md:w-[600px] md:h-[380px] flex-shrink-0`}
+                      style={{ transition: "border 0.3s" }}
+                    >
+                      <Image
+                        src={service.img}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 400px, 600px"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Text Content - Always centered, independent of images */}
           <div className="text-center !mt-10 md:!mt-[2rem]">

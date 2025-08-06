@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { Button } from "./ui/button";
@@ -31,7 +32,8 @@ const Booking = ({ onBack }) => {
     email: "",
     phone: "",
     serviceType: "",
-    vehicleInfo: "",
+    carBrand: "",
+    year: "",
     preferredDate: null,
     preferredTime: "",
     message: "",
@@ -51,6 +53,49 @@ const Booking = ({ onBack }) => {
     "Tire Service",
     "General Inspection",
     "Emergency Repair",
+    "Other",
+  ];
+
+  // Generate years from 1990 to current year
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: currentYear - 1989 }, (_, i) =>
+    (1990 + i).toString()
+  );
+
+  const carBrands = [
+    "Toyota",
+    "Honda",
+    "Nissan",
+    "Mazda",
+    "Mitsubishi",
+    "Subaru",
+    "Suzuki",
+    "Lexus",
+    "Acura",
+    "Infiniti",
+    "Hyundai",
+    "Kia",
+    "Ford",
+    "Chevrolet",
+    "GMC",
+    "Dodge",
+    "Jeep",
+    "Chrysler",
+    "Volkswagen",
+    "Audi",
+    "BMW",
+    "Mercedes-Benz",
+    "Porsche",
+    "Volvo",
+    "Jaguar",
+    "Land Rover",
+    "Mini",
+    "Fiat",
+    "Peugeot",
+    "Renault",
+    "Skoda",
+    "Seat",
+    "Tesla",
     "Other",
   ];
 
@@ -144,45 +189,35 @@ const Booking = ({ onBack }) => {
       const result = await response.json();
 
       if (response.ok) {
-        console.log("Booking successful:", result);
         setSubmitted(true);
         setSubmitStatus("success");
         setBookingDetails(result);
 
-        // Enhanced success message based on API response
-        let successMessage = "Your appointment has been successfully booked! ";
+        // Show Sonner toast to user
+        toast.success(
+          "Your appointment has been submitted. Please check your email for confirmation and further details."
+        );
 
-        if (result.notifications?.customerEmailSent) {
-          successMessage += "A confirmation email has been sent to you. ";
-        }
+        // Success message for the confirmation screen
+        setSubmitMessage(
+          "Your appointment has been received! You will get a confirmation email shortly. Our team will contact you to finalize your appointment."
+        );
 
-        if (result.calendly?.success) {
-          successMessage +=
-            "Your appointment has been added to our calendar system. ";
-        } else if (result.calendly?.simulation) {
-          successMessage +=
-            "Our team will manually schedule your appointment and contact you shortly. ";
-        }
-
-        successMessage += `Your booking ID is: ${result.bookingId}`;
-        setSubmitMessage(successMessage);
-
-        // Don't auto-close anymore - let user close manually
-        // Reset form data but keep modal open
+        // Reset form data but keep success screen
         setTimeout(() => {
           setFormData({
             name: "",
             email: "",
             phone: "",
             serviceType: "",
+            carType: "", // <-- add this
             vehicleInfo: "",
             preferredDate: null,
             preferredTime: "",
             message: "",
           });
-        }, 1000); // Just reset form after 1 second, but keep success screen
+        }, 1000);
       } else {
-        console.error("Booking error:", result.error);
         setSubmitStatus("error");
         setSubmitMessage(
           result.error ||
@@ -285,28 +320,10 @@ const Booking = ({ onBack }) => {
                   <span className="text-white">{formData.vehicleInfo}</span>
                 </p>
                 <p>
-                  <span className="text-gray-400">Booking ID:</span>{" "}
-                  <span className="text-green-400 font-mono">
-                    {bookingDetails.bookingId}
-                  </span>
+                  <span className="text-gray-400">Car Brand:</span>{" "}
+                  <span className="text-white">{formData.carType}</span>
                 </p>
               </div>
-
-              {bookingDetails.calendly?.eventUrl && (
-                <div className="!mt-4 !p-3 bg-blue-900/30 rounded border border-blue-500/30">
-                  <p className="text-blue-300 text-xs">
-                    📅 Calendar event:{" "}
-                    <a
-                      href={bookingDetails.calendly.eventUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-blue-200"
-                    >
-                      View in Calendly
-                    </a>
-                  </p>
-                </div>
-              )}
             </motion.div>
           )}
         </div>
@@ -472,25 +489,60 @@ const Booking = ({ onBack }) => {
               </Select>
             </div>
 
+            {/* Car Brand Dropdown */}
             <div className="space-y-2">
-              <Label
-                htmlFor="vehicle"
-                className="text-gray-500 text-sm flex items-center gap-2 !mb-3"
-              >
+              <Label className="text-gray-500 text-sm flex items-center gap-2 !mb-3">
                 <Car className="w-4 h-4" />
-                Vehicle Information *
+                Car Brand *
               </Label>
-              <Input
-                id="vehicle"
-                type="text"
-                placeholder="e.g., 2020 Toyota Camry"
-                value={formData.vehicleInfo}
-                onChange={(e) =>
-                  handleInputChange("vehicleInfo", e.target.value)
-                }
-                className="w-full h-11 !px-4 !py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder:text-gray-400 focus:border-[#ff2c2c] focus:ring-1 focus:ring-[#ff2c2c] transition-all outline-none focus:outline-none"
+              <Select
+                onValueChange={(value) => handleInputChange("carBrand", value)}
+                value={formData.carBrand}
                 required
-              />
+              >
+                <SelectTrigger className="w-full h-11 !px-4 !py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-[#ff2c2c] focus:ring-1 focus:ring-[#ff2c2c] transition-all outline-none focus:outline-none">
+                  <SelectValue placeholder="Select car brand" />
+                </SelectTrigger>
+                <SelectContent className="bg-black border border-white/20 z-[80]">
+                  {carBrands.map((brand) => (
+                    <SelectItem
+                      key={brand}
+                      value={brand}
+                      className="text-white hover:bg-white/10"
+                    >
+                      {brand}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Year Dropdown */}
+            <div className="space-y-2">
+              <Label className="text-gray-500 text-sm flex items-center gap-2 !mb-3">
+                <span className="w-4 h-4" />
+                Year *
+              </Label>
+              <Select
+                onValueChange={(value) => handleInputChange("year", value)}
+                value={formData.year}
+                required
+              >
+                <SelectTrigger className="w-full h-11 !px-4 !py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:border-[#ff2c2c] focus:ring-1 focus:ring-[#ff2c2c] transition-all outline-none focus:outline-none">
+                  <SelectValue placeholder="Select year" />
+                </SelectTrigger>
+                <SelectContent className="bg-black border border-white/20 z-[80]">
+                  {years.map((year) => (
+                    <SelectItem
+                      key={year}
+                      value={year}
+                      className="text-white hover:bg-white/10"
+                    >
+                      {year}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
