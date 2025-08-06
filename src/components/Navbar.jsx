@@ -189,7 +189,7 @@ const Navbar = () => {
                                 ></iframe>
                               </div>
                               <a
-                                href="https://www.google.com/maps/search/?api=1&query=9.05785,7.49508"
+                                href="https://maps.app.goo.gl/oJwayGU66snPJjig7"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block text-center text-black text-xs font-bold underline mt-2 mb-2"

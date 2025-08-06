@@ -402,7 +402,7 @@ const Booking = ({ onBack }) => {
             <div className="space-y-2">
               <Label
                 htmlFor="name"
-                className="text-gray-500 text-sm flex items-center gap-2 !mb-3"
+                className="text-gray-300 text-sm flex items-center gap-2 !mb-3"
               >
                 <User className="w-4 h-4" />
                 Full Name *
@@ -421,7 +421,7 @@ const Booking = ({ onBack }) => {
             <div className="space-y-2">
               <Label
                 htmlFor="email"
-                className="text-gray-500 text-sm flex items-center gap-2 !mb-3"
+                className="text-gray-300 text-sm flex items-center gap-2 !mb-3"
               >
                 <Mail className="w-4 h-4" />
                 Email Address *
@@ -440,7 +440,7 @@ const Booking = ({ onBack }) => {
             <div className="space-y-2">
               <Label
                 htmlFor="phone"
-                className="text-gray-500 text-sm flex items-center gap-2 !mb-3"
+                className="text-gray-300 text-sm flex items-center gap-2 !mb-3"
               >
                 <Phone className="w-4 h-4" />
                 Phone Number *
@@ -464,7 +464,7 @@ const Booking = ({ onBack }) => {
             </h3>
 
             <div className="space-y-2">
-              <Label className="text-gray-500 text-sm flex items-center gap-2 !mb-3">
+              <Label className="text-gray-300 text-sm flex items-center gap-2 !mb-3">
                 Service Type *
               </Label>
               <Select
@@ -491,7 +491,7 @@ const Booking = ({ onBack }) => {
 
             {/* Car Brand Dropdown */}
             <div className="space-y-2">
-              <Label className="text-gray-500 text-sm flex items-center gap-2 !mb-3">
+              <Label className="text-gray-300 text-sm flex items-center gap-2 !mb-3">
                 <Car className="w-4 h-4" />
                 Car Brand *
               </Label>
@@ -519,7 +519,7 @@ const Booking = ({ onBack }) => {
 
             {/* Year Dropdown */}
             <div className="space-y-2">
-              <Label className="text-gray-500 text-sm flex items-center gap-2 !mb-3">
+              <Label className="text-gray-300 text-sm flex items-center gap-2 !mb-3">
                 <span className="w-4 h-4" />
                 Year *
               </Label>
@@ -555,7 +555,7 @@ const Booking = ({ onBack }) => {
             <div className="space-y-4">
               {/* Date Picker */}
               <div className="space-y-2">
-                <Label className="text-gray-500 text-sm flex items-center gap-2 !mb-3">
+                <Label className="text-gray-300 text-sm flex items-center gap-2 !mb-3">
                   <CalendarIcon className="w-4 h-4" />
                   Preferred Date *
                 </Label>
@@ -603,7 +603,7 @@ const Booking = ({ onBack }) => {
 
               {/* Time Picker */}
               <div className="space-y-2">
-                <Label className="text-gray-500 text-sm flex items-center gap-2 !mb-3">
+                <Label className="text-gray-300 text-sm flex items-center gap-2 !mb-3">
                   <Clock className="w-4 h-4" />
                   Preferred Time *
                 </Label>
