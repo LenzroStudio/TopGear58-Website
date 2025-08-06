@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <div>
       {/* Unified hero for all screen sizes: video background, overlay, pause/play, responsive text */}
-      <div className="relative w-full h-[98vh] md:h-screen flex items-center justify-center">
+      <div className="relative w-full h-[90vh] md:h-screen flex items-center justify-center">
         {/* Video background, tap to pause/play */}
         <video
           autoPlay
