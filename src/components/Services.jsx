@@ -4,6 +4,8 @@ import Image from "next/image";
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,13 +35,13 @@ const Services = () => {
     <div className="bg-white text-black relative overflow-hidden">
       <div
         ref={ref}
-        className="relative z-10 min-h-[80vh] md:min-h-[90vh] !px-[2.5%] md:!px-0 !pb-[5rem] !py-[8%] md:!py-[5%] flex flex-col items-center text-center justify-center gap-[2rem] md:gap-[5rem]"
+        className="relative z-10 min-h-[80vh] md:min-h-[90vh] !px-[2.5%] md:!px-0 !pb-[5rem] !py-[10%] md:!py-[8%] flex flex-col items-center text-center justify-center gap-[2rem] md:gap-[5rem]"
       >
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl  mozilla-text "
+          className="text-4xl md:text-5xl  "
         >
           OUR TAILORMADE SERVICES
         </motion.h1>
@@ -163,6 +165,12 @@ const Services = () => {
                   </motion.p>
                 </AnimatePresence>
               </div>
+
+              <Link href={'/'} className="!my-5">
+                <Button className={"bg-transparent text-black border font-medium hover:bg-black transition-all duration-700 hover:text-white border-black h-[7vh] !px-[2rem] text-md rounded-none "}>
+                  Discover {services[currentIndex].title}
+                </Button>
+              </Link>
             </div>
           </div>
 
