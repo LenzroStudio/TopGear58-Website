@@ -127,6 +127,7 @@ const History = () => {
           loop
           muted
           playsInline
+          preload="metadata" // Only load metadata initially
           className="object-cover w-full md:w-[90%] h-full transition-transform duration-75 ease-out"
           style={{
             zIndex: 0,

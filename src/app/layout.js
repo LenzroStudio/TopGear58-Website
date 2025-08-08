@@ -2,7 +2,7 @@ import { Outfit,  Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "sonner";
-
+import { Analytics } from "@vercel/analytics/next";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
         className={`${outfit.variable}  ${poppins.variable} antialiased`}
       >
         <Toaster richColors position="bottom-center"/>
+        <Analytics/>
         <Navbar/>
         {children}
       </body>

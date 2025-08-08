@@ -17,6 +17,7 @@ const Hero = () => {
           loop
           muted
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ zIndex: 0, cursor: "pointer" }}
           ref={videoRef}
