@@ -38,7 +38,11 @@ const Navbar = () => {
         {/* navlinks */}
         <div className="flex items-center justify-start gap-[3rem]">
           {navlinks.map((item, index) => (
-            <Link href={item.to} key={index} className="cursor-pointer hover:text-red-500 duration-600 transition-all">
+            <Link
+              href={item.to}
+              key={index}
+              className="cursor-pointer hover:text-red-500 duration-600 transition-all"
+            >
               <p>{item.link}</p>
             </Link>
           ))}
@@ -49,12 +53,7 @@ const Navbar = () => {
         </Link>
         {/* booking button */}
         <div className="flex items-center justify-end ">
-          <Button
-            className={
-              "rounded-full !px-5 bg-white border-white border text-black font-bold transition-all duration-500 cursor-pointer hover:bg-black hover:text-white"
-            }
-            onClick={handleBookingClick}
-          >
+          <Button className="uiverse-btn" onClick={handleBookingClick}>
             Book an Appointment
           </Button>
         </div>
@@ -170,7 +169,7 @@ const Navbar = () => {
                             type: "spring",
                             stiffness: 400,
                             damping: 60,
-                            delay: 1.00, // This delay should match or slightly exceed the side menu's slide-in duration
+                            delay: 1.0, // This delay should match or slightly exceed the side menu's slide-in duration
                           }}
                           className="bg-white w-screen h-[68vh] rounded-tl-4xl rounded-tr-none rounded-br-none rounded-bl-none mt-8 overflow-hidden flex flex-col relative"
                           style={{

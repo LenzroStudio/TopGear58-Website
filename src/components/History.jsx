@@ -154,7 +154,7 @@ const History = () => {
               }
             }
           }}
-          className="absolute top-1/2 left-1/2 flex items-center justify-center w-[90px] h-[90px] bg-black/20 !p-0 cursor-pointer backdrop-blur-lg hover:bg-red-500/30 rounded-full z-10"
+          className="absolute top-1/2 left-1/2 flex items-center justify-center w-[90px] h-[90px] bg-black/20 !p-0 cursor-pointer backdrop-blur-lg md:hover:bg-red-500/30 rounded-full z-10"
           style={{
             transform: `translate(-50%, -50%) scale(${videoScale})`,
             transformOrigin: "center center",

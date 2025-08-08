@@ -34,13 +34,13 @@ export const services = [
     img: s3,
   },
   {
-    title: "Computer Diagnostics + Fault Detection",
+    title: "Computer Diagnostics",
     description:
       "Full system scan to detect and report fault codes and performance issues.",
     img: s4,
   },
   {
-    title: "Engine Oil Change (Up to 4x/year)",
+    title: "Engine Oil Change",
     description:
       "Scheduled oil changes to ensure engine health and performance throughout the year.",
     img: s5,

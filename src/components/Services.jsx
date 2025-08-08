@@ -143,7 +143,7 @@ const Services = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -50, opacity: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="absolute inset-0 flex items-center justify-center text-xl  md:text-2xl one md:leading-tight mozilla-text"
+                    className="absolute inset-0 flex items-center justify-center text-md  md:text-2xl one md:leading-tight mozilla-text"
                   >
                     {services[currentIndex].title}
                   </motion.h3>
@@ -167,8 +167,8 @@ const Services = () => {
               </div>
 
               <Link href={'/'} className="!my-5">
-                <Button className={"bg-transparent text-black border font-medium hover:bg-black transition-all duration-700 hover:text-white border-black h-[7vh] !px-[2rem] text-md rounded-none "}>
-                  Discover {services[currentIndex].title}
+                <Button className={"bg-transparent text-black  border font-medium hover:bg-black transition-all duration-700 hover:text-white border-black h-[7vh] !px-[2rem] text-md rounded-none "}>
+                  Discover 
                 </Button>
               </Link>
             </div>

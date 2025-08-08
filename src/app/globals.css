@@ -151,3 +151,40 @@ select{
 textarea{
   outline: none;
 }
+
+.uiverse-btn {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid white;
+  background: transparent;
+}
+
+.uiverse-btn:hover {
+  color: #ffffff;
+  outline: 2px solid white;
+}
+
+.uiverse-btn::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #ffc845;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.uiverse-btn:hover::before {
+  width: 250%;
+}
