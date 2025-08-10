@@ -22,7 +22,7 @@ const Cardstemplate = ({ color, text, textColor }) => {
       >
         {/* Front Side */}
         <div
-          className={`absolute w-[370px] md:w-[500px] h-[30vh] md:h-[40vh] ${color} ${textColor} !p-6`}
+          className={`absolute w-[368px] md:w-[500px] h-[30vh] md:h-[40vh] ${color} ${textColor} !py-6`}
           style={{
             backfaceVisibility: "hidden",
             background: color,
@@ -44,7 +44,7 @@ const Cardstemplate = ({ color, text, textColor }) => {
         </div>
         {/* Back Side */}
         <div
-          className={`absolute w-[370px] md:w-[500px] h-[30vh] md:h-[40vh] rounded-2xl ${color} ${textColor} flex flex-col !p-6`}
+          className={`absolute w-[368px] md:w-[500px] h-[30vh] md:h-[40vh] rounded-2xl ${color} ${textColor} flex flex-col !py-6 `}
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -57,28 +57,28 @@ const Cardstemplate = ({ color, text, textColor }) => {
             </p>
           </div>
           <div
-            className={`absolute top-20 md:top-30 left-10 flex flex-col gap-4 w-[78vw] md:w-full `}
+            className={`absolute top-20 md:top-30 left-8 flex flex-col gap-4 w-[78vw] md:w-[30vw] `}
           >
             <div>
               <p className=" text-[8px] text-xs">Your subscription type is:</p>
-              <h1 className="text-md font-extrabold">{text}</h1>
+              <h1 className="text-md md:text-2xl font-extrabold">{text}</h1>
             </div>
-            <div className="rounded-md text-center text-xl md:text-4xl !p-3 font-extrabold border-2 ">
+            <div className="rounded-md text-center text-xl md:text-3xl !p-3 font-extrabold border-2 ">
               TG58 0010 0GGC 07CO
             </div>
             <div className="flex items-center justify-between w-full">
-              <div className="text-[8px] md:text-[11px] flex items-center gap-2">
-                <Phone className="!w-3 !h-3" />
+              <div className="text-[9px] md:text-[11px]  flex items-center gap-2">
+                <Phone className="!w-3 !h-3 " />
                 <p>+254717721106 / +254723279953</p>
               </div>
-              <div className="text-[8px] md:text-[11px] flex items-center gap-2">
+              <div className="text-[9px] md:text-[11px] flex items-center gap-2">
                 <Globe className="!w-3 !h-3" />
                 <p>TOPGEAR58.COM</p>
               </div>
             </div>
           </div>
           <div className="absolute top-8 right-6">
-            <Image src={LocationQR} className="!w-10 !h-10 md:!w-15 md:!h-15" />
+            <Image src={LocationQR} className="!w-11 !h-11 md:!w-15 md:!h-15" />
             <div className="!ml-[10px] text-[8px] md:text-xs">
               <span>find us</span>
             </div>
