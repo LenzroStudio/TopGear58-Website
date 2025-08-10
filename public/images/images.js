@@ -1,4 +1,6 @@
 import t_logo from "../images/top_gear_logo.png";
+import LocationQR from "../images/LocationQr.png";
+
 import hero_img from "../images/Hero_img.jpg";
 import hero_sm_img from "../images/sm_Hero.jpg";
 import s1 from "../images/s1.jpg";
@@ -19,6 +21,7 @@ export {
   t_logo,
   hero_img,
   hero_sm_img,
+  LocationQR,
   s1,
   s2,
   s3,

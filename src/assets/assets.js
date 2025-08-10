@@ -88,3 +88,51 @@ export const services = [
         img: s12,
     }
 ];
+
+
+export const FrontcardContent = [
+  {
+    color: "bg-black",
+    text: "NORMAL CARD",
+    textColor: "text-white",
+  },
+  {
+    color: "bg-gray-500",
+    text: "SILVER CARD",
+    textColor: "text-white",
+  },
+  {
+    color: "bg-yellow-500",
+    text: "GOLD CARD",
+    textColor: "text-black",
+  },
+  {
+    color: "bg-cyan-500",
+    text: "DIAMOND CARD",
+    textColor: "text-black",
+  },
+];
+
+
+export const BackcardContent = [
+  {
+    color: "bg-black",
+    text: "NORMAL CARD",
+    textColor: "text-white",
+  },
+  {
+    color: "bg-gray-500",
+    text: "SILVER CARD",
+    textColor: "text-white",
+  },
+  {
+    color: "bg-yellow-500",
+    text: "GOLD CARD",
+    textColor: "text-black",
+  },
+  {
+    color: "bg-cyan-500",
+    text: "DIAMOND CARD",
+    textColor: "text-black",
+  },
+];

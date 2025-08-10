@@ -188,3 +188,7 @@ textarea{
 .uiverse-btn:hover::before {
   width: 250%;
 }
+
+.perspective {
+  perspective: 1200px;
+}
