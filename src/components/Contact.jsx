@@ -65,14 +65,14 @@ const Contact = () => {
               <Input
                 type="text"
                 name="Firstname"
-                placeHolder="First name"
+                placeholder="First name"
                 required
                 className="rounded-lg border border-gray-700 h-[7vh] text-white md:w-[30vw] !px-5 bg-transparent  focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
               />
               <Input
                 type="email"
                 name="Email"
-                placeHolder="Email address"
+                placeholder="Email address"
                 required
                 className="rounded-lg border border-gray-700 h-[7vh] text-white md:w-[30vw] !px-5 bg-transparent  focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
               />
@@ -81,14 +81,14 @@ const Contact = () => {
               <Input
                 type="text"
                 name="Lastname"
-                placeHolder="Last name"
+                placeholder="Last name"
                 required
                 className="rounded-lg border border-gray-700 h-[7vh] text-white md:w-[30vw] !px-5 bg-transparent  focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
               />
               <Input
                 type="number"
                 name="name"
-                placeHolder="Phone number"
+                placeholder="Phone number"
                 required
                 className="rounded-lg border border-gray-700 h-[7vh] text-white md:w-[30vw] !px-5 bg-transparent  focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
               />
@@ -98,7 +98,7 @@ const Contact = () => {
             name="message"
             row={6}
             required
-            placeHolder="Your message"
+            placeholder="Your message"
             className="rounded-lg border border-gray-700 h-[7vh] text-white md:w-[30vw] !px-5 bg-transparent  focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition resize-none"
           />
           <Button
