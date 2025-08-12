@@ -1,10 +1,14 @@
 "use client"
 import { BackcardContent, FrontcardContent } from "@/assets/assets";
 import Cardstemplate from "@/components/Cardstemplate";
+import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import History from "@/components/History";
+import Location from "@/components/Location";
 import Services from "@/components/Services";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -14,12 +18,12 @@ export default function Home() {
       <Hero />
       <Services />
       <History />
-      <div className="!px-[2.5%] md:!px-[5%] !pb-[5rem] !py-[10%] md:!py-[8%] flex flex-col gap-[5rem]">
+      <div className="!px-[2.5%] bg-black text-white md:!px-[5%] !pb-[5rem] !py-[10%] md:!py-[5%] flex flex-col md:gap-[5rem] items-center justify-center">
         {/* section-text */}
         <h1 className="text-2xl md:text-4xl lg:text-5xl !px-8 md:!px-16 text-center">
           Be Part of the Vip Club
         </h1>
-        <div className="relative z-10 min-h-[80vh] md:min-h-[90vh]  grid md:grid-cols-2  grid-cols-1 items-center  justify-center  md:gap-[5rem]">
+        <div className="relative z-10 min-h-[80vh] md:min-h-[90vh] w-full grid md:grid-cols-2  grid-cols-1 items-center justify-center  md:gap-[5rem]">
           {/* cards */}
           {cardSide === "FRONT"
             ? FrontcardContent.map((item, index) => {
@@ -30,6 +34,7 @@ export default function Home() {
                     text={item.text}
                     textColor={item.textColor}
                     cardSide={cardSide}
+                    logo={item.logo}
                   />
                 );
               })
@@ -41,13 +46,23 @@ export default function Home() {
                     text={item.text}
                     textColor={item.textColor}
                     cardSide={cardSide}
+                    logo={item.logo}
                   />
                 );
               })}
           {/* pricing */}
           {}
         </div>
+        <Link
+          href="/membership_cards"
+          scroll={true}
+          className="w-full flex items-center justify-center"
+        >
+          <Button className={"h-11 w-80 bg-white text-black hover:bg-gray-800 hover:text-white cursor-pointer transition-all duration-500"}>Get your card now</Button>
+        </Link>
       </div>
+      <Location/>
+      <Contact/>
     </div>
   );
 }

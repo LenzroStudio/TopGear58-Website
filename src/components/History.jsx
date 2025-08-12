@@ -2,6 +2,7 @@
 import { ChevronRight, Pause, Play, Maximize, Minimize } from "lucide-react";
 import React, { useRef, useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const History = () => {
   const [videoStatus, setVideoStatus] = useState("PLAYING");
@@ -198,14 +199,16 @@ const History = () => {
       </div>
 
       <div className="!px-6 flex items-center justify-center">
-        <Button
+        <Link
+          href={"/Ourstory"}
+          scroll={false}
           className={
             "bg-amber-500 md:w-[25%] hover:bg-blue-900 font-bold transition-all duration-500 text-white flex items-center justify-center gap-3 w-full cursor-pointer rounded-none h-[6vh]"
           }
         >
           Know Our History
           <ChevronRight />
-        </Button>
+        </Link>
       </div>
     </div>
   );

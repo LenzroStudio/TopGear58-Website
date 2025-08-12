@@ -1,4 +1,4 @@
-import { s1, s10, s11, s12, s2, s3, s4, s5, s6, s7, s8, s9 } from "../../public/images/images";
+import { s1, s10, s11, s12, s2, s3, s4, s5, s6, s7, s8, s9, t_logo, t_logoB } from "../../public/images/images";
 
 export const navlinks = [
   {
@@ -7,7 +7,7 @@ export const navlinks = [
   },
   {
     link: "Services",
-    to: "/services",
+    to: "/Services",
   },
   {
     link: "Membership",
@@ -92,47 +92,93 @@ export const services = [
 
 export const FrontcardContent = [
   {
-    color: "bg-black",
+    color: "bg-white",
     text: "NORMAL CARD",
-    textColor: "text-white",
+    textColor: "text-black",
+    logo: t_logoB
   },
   {
     color: "bg-gray-500",
     text: "SILVER CARD",
     textColor: "text-white",
+    logo: t_logo
   },
   {
     color: "bg-yellow-500",
     text: "GOLD CARD",
     textColor: "text-black",
+    logo: t_logo
   },
   {
     color: "bg-cyan-500",
     text: "DIAMOND CARD",
     textColor: "text-black",
+    logo: t_logo
   },
 ];
 
 
 export const BackcardContent = [
   {
-    color: "bg-black",
+    color: "bg-white",
     text: "NORMAL CARD",
-    textColor: "text-white",
+    textColor: "text-black",
+    logo: t_logoB
   },
   {
     color: "bg-gray-500",
     text: "SILVER CARD",
     textColor: "text-white",
+    logo: t_logo
   },
   {
     color: "bg-yellow-500",
     text: "GOLD CARD",
     textColor: "text-black",
+    logo: t_logo
   },
   {
     color: "bg-cyan-500",
     text: "DIAMOND CARD",
     textColor: "text-black",
+    logo: t_logo
   },
 ];
+
+export const WorkingHours = [
+  {
+    day: "Monday", 
+    Openingtime: "08:00am",
+    ClosingTime: "17:30pm"
+  },
+  {
+    day: "Tueday", 
+    Openingtime: "08:00am",
+    ClosingTime: "17:30pm"
+  },
+  {
+    day: "Wednesday", 
+    Openingtime: "08:00am",
+    ClosingTime: "17:30pm"
+  },
+  {
+    day: "Thursday", 
+    Openingtime: "08:00am",
+    ClosingTime: "17:30pm"
+  },
+  {
+    day: "Friday", 
+    Openingtime: "08:00am",
+    ClosingTime: "17:30pm"
+  },
+  {
+    day: "Saturday", 
+    Openingtime: "08:00am",
+    ClosingTime: "12:30pm"
+  },
+  {
+    day: "Sunday", 
+    Openingtime: "",
+    ClosingTime: ""
+  },
+]

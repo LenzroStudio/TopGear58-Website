@@ -1,8 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Mozilla+Text:200,300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Outfit:100,200,300,regular,500,600,700,800,900);
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+::placeholder{
+  font-weight: 600;
+  font-size: 1rem;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -59,6 +65,10 @@ body{
   font-family: "Mozilla Text", sans-serif;
   font-optical-sizing: auto;
   font-weight: 100;
+}
+
+.outfit{
+  font-family: 'Outfit';
 }
 
 :root {
@@ -150,6 +160,10 @@ select{
 
 textarea{
   outline: none;
+}
+
+a::after{
+  color: crimson;
 }
 
 .uiverse-btn {

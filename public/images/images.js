@@ -1,4 +1,6 @@
-import t_logo from "../images/top_gear_logo.png";
+import t_logo from "../images/TG_logo_white.png";
+import t_logoB from "../images/TG_logo_black.png";
+
 import LocationQR from "../images/LocationQr.png";
 
 import hero_img from "../images/Hero_img.jpg";
@@ -19,6 +21,7 @@ import s12 from "../images/s12.jpg";
 // Do not import video files directly. Use public path string in components.
 export {
   t_logo,
+  t_logoB,
   hero_img,
   hero_sm_img,
   LocationQR,

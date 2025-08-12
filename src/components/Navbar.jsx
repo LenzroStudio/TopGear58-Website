@@ -43,7 +43,7 @@ const Navbar = () => {
               key={index}
               className="cursor-pointer hover:text-red-500 duration-600 transition-all"
             >
-              <p>{item.link}</p>
+              <p> {item.link}</p>
             </Link>
           ))}
         </div>
@@ -187,7 +187,7 @@ const Navbar = () => {
                             <div className="w-full">
                               {/* Embedded Map */}
                               <div className="w-full overflow-hidden mb-2">
-                                <iframe
+                                `<iframe
                                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d34569.80672527318!2d36.8380108!3d-1.2792793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11a66a8b5077%3A0x52d611a099b8730e!2sTopGear58!5e1!3m2!1sen!2ske!4v1754471731476!5m2!1sen!2ske"
                                   width="100%"
                                   height="100%"
@@ -195,7 +195,7 @@ const Navbar = () => {
                                   allowFullScreen=""
                                   loading="lazy"
                                   referrerPolicy="no-referrer-when-downgrade"
-                                ></iframe>
+                                ></iframe>`
                               </div>
                               {/* Socials */}
                               <div className="flex flex-col gap-0.5 mt-2 !py-7 !px-6 text-black">
