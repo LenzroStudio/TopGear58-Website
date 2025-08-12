@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { LocationQR, t_logo } from "../../public/images/images";
+import { LocationQR } from "../../public/images/images";
 import { Globe, Phone } from "lucide-react";
 import Link from "next/link";
 
-const Cardstemplate = ({ color, text, textColor , logo }) => {
+const Cardstemplate = ({ color, text, textColor, logo }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   return (
     <Link
@@ -32,7 +32,13 @@ const Cardstemplate = ({ color, text, textColor , logo }) => {
           }}
         >
           <div>
-            <Image src={logo} className="!w-34 md:!w-40 !ml-4" alt="Logo" />
+            <Image
+              src={logo}
+              width={60} // set to the actual pixel width of your logo
+              height={60} // set to the actual pixel height of your logo
+              className="!w-34 md:!w-40 !ml-4"
+              alt="Logo"
+            />
             <p className="text-[9px] md:text-xs !ml-6  font-bold">
               Driven by Trust , Powered by Care
             </p>
@@ -52,7 +58,13 @@ const Cardstemplate = ({ color, text, textColor , logo }) => {
           }}
         >
           <div>
-            <Image src={logo} className="!w-34 md:!w-40 !ml-4" alt="Logo" />
+            <Image
+              src={logo}
+              width={60} // set to the actual pixel width of your logo
+              height={60} // set to the actual pixel height of your logo
+              className="!w-34 md:!w-40 !ml-4"
+              alt="Logo"
+            />
             <p className="text-[6px] md:text-[10px] !ml-6 font-bold">
               Driven by Trust , Powered by Care
             </p>
@@ -61,7 +73,9 @@ const Cardstemplate = ({ color, text, textColor , logo }) => {
             className={`absolute top-20 md:top-30 left-8 flex flex-col gap-4 w-[78vw] md:w-[30vw] `}
           >
             <div>
-              <p className=" text-[9px] md:text-[12px] font-bold">Your subscription type is:</p>
+              <p className=" text-[9px] md:text-[12px] font-bold">
+                Your subscription type is:
+              </p>
               <h1 className="text-md md:text-2xl font-extrabold">{text}</h1>
             </div>
             <div className="rounded-md text-center text-xl md:text-3xl !p-3 font-extrabold border-2 ">
@@ -81,6 +95,8 @@ const Cardstemplate = ({ color, text, textColor , logo }) => {
           <div className="absolute top-8 right-6">
             <Image
               src={LocationQR}
+              width={44} // set to the actual pixel width of your QR code
+              height={44} // set to the actual pixel height of your QR code
               alt="qr-code"
               className="!w-11 !h-11 md:!w-15 md:!h-15"
             />

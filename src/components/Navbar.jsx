@@ -49,7 +49,13 @@ const Navbar = () => {
         </div>
         {/* logo */}
         <Link href={"/"} className="flex items-center justify-center">
-          <Image src={t_logo} alt="Website logo" className="w-[15vw]" />
+          <Image
+            src={t_logo}
+            alt="Website logo"
+            width={120} // set to your logo's actual width in pixels
+            height={40} // set to your logo's actual height in pixels
+            className="w-[15vw]"
+          />
         </Link>
         {/* booking button */}
         <div className="flex items-center justify-end ">
@@ -63,7 +69,13 @@ const Navbar = () => {
       <div className="md:hidden bg-black/30 backdrop-blur-2xl text-white fixed z-50 w-full">
         <div className="!p-[1rem] flex items-center justify-between">
           <Link href={"/"} className="flex items-center justify-center">
-            <Image src={t_logo} alt="Website logo" className="w-[42vw]" />
+            <Image
+              src={t_logo}
+              alt="Website logo"
+              width={120} // set to your logo's actual width in pixels
+              height={40} // set to your logo's actual height in pixels
+              className="w-[42vw]"
+            />
           </Link>
           <div>
             <button
@@ -187,7 +199,8 @@ const Navbar = () => {
                             <div className="w-full">
                               {/* Embedded Map */}
                               <div className="w-full overflow-hidden mb-2">
-                                `<iframe
+                                `
+                                <iframe
                                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d34569.80672527318!2d36.8380108!3d-1.2792793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11a66a8b5077%3A0x52d611a099b8730e!2sTopGear58!5e1!3m2!1sen!2ske!4v1754471731476!5m2!1sen!2ske"
                                   width="100%"
                                   height="100%"
@@ -195,7 +208,8 @@ const Navbar = () => {
                                   allowFullScreen=""
                                   loading="lazy"
                                   referrerPolicy="no-referrer-when-downgrade"
-                                ></iframe>`
+                                ></iframe>
+                                `
                               </div>
                               {/* Socials */}
                               <div className="flex flex-col gap-0.5 mt-2 !py-7 !px-6 text-black">

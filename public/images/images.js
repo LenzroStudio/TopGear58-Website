@@ -1,24 +1,39 @@
-import t_logo from "../images/TG_logo_white.png";
-import t_logoB from "../images/TG_logo_black.png";
+// Example Blob URLs (replace with your actual URLs from upload script output)
+const t_logo =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/TG_logo_white.png";
+const t_logoB =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/TG_logo_black.png";
+const LocationQR =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/LocationQr.png";
+const hero_img =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/Hero_img.jpg";
+const hero_sm_img =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/sm_Hero.jpg";
+const s1 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s1.jpg";
+const s2 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s2.jpg";
+const s3 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s3.jpg";
+const s4 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s4.jpg";
+const s5 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s5.jpg";
+const s6 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s6.webp";
+const s7 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s7.jpg";
+const s8 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s8.jpg";
+const s9 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s9.jpg";
+const s10 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s10.jpg";
+const s11 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s11.jpg";
+const s12 =
+  "https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/images/s12.jpg";
 
-import LocationQR from "../images/LocationQr.png";
-
-import hero_img from "../images/Hero_img.jpg";
-import hero_sm_img from "../images/sm_Hero.jpg";
-import s1 from "../images/s1.jpg";
-import s2 from "../images/s2.jpg";
-import s3 from "../images/s3.jpg";
-import s4 from "../images/s4.jpg";
-import s5 from "../images/s5.jpg";
-import s6 from "../images/s6.webp";
-import s7 from "../images/s7.jpg";
-import s8 from "../images/s8.jpg";
-import s9 from "../images/s9.jpg";
-import s10 from "../images/s10.jpg";
-import s11 from "../images/s11.jpg";
-import s12 from "../images/s12.jpg";
-
-// Do not import video files directly. Use public path string in components.
 export {
   t_logo,
   t_logoB,

@@ -117,7 +117,7 @@ const History = () => {
   return (
     <div
       ref={sectionRef}
-      className="min-h-[95vh] bg-gray-100 !py-10 md:!py-20 flex flex-col gap-[3rem] "
+      className="min-h-[95vh] bg-gray-100 text-black !py-10 md:!py-20 flex flex-col gap-[3rem] "
     >
       <h1 className="text-3xl md:text-4xl lg:text-5xl !px-8 md:!px-16">
         Celebrating 58 Years of Being TopGear58
@@ -137,7 +137,10 @@ const History = () => {
           }}
           ref={videoRef}
         >
-          <source src="/videos/hero_vid.mp4" type="video/mp4" />
+          <source
+            src="https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/videos/hero_vid.mp4"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
 

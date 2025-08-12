@@ -34,7 +34,10 @@ const Hero = () => {
             }
           }}
         >
-          <source src="/videos/HeroVid.mp4" type="video/mp4" />
+          <source
+            src="https://xr1jblfnjocxsqzv.public.blob.vercel-storage.com/videos/HeroVid.mp4"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
         {/* Image overlay when video is paused */}
@@ -42,9 +45,10 @@ const Hero = () => {
           <Image
             src={hero_sm_img}
             alt="Hero Image"
-            layout="fill"
-            objectFit="cover"
+            width={1920} // set to your image's actual width
+            height={1080} // set to your image's actual height
             className="absolute inset-0 z-10"
+            style={{ objectFit: "cover" }}
           />
         )}
         {/* Responsive text and pause/play button */}
