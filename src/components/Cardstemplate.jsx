@@ -8,14 +8,14 @@ const Cardstemplate = ({ color, text, textColor, logo }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   return (
     <Link
-      className="relative w-full h-[270px] md:h-[350px] perspective flex items-center justify-center"
+      className="relative w-[350px] h-[270px] md:h-[350px] perspective flex items-center justify-center"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       style={{ perspective: "1200px" }}
       href={`/membership_cards/${text}`}
     >
       <div
-        className={`absolute w-[370px] md:w-[500px] h-[30vh] md:h-[40vh] rounded-2xl ${color} transition-transform duration-700`}
+        className={`absolute w-[350px] md:w-[500px] h-[28vh] md:h-[40vh] rounded-2xl ${color} transition-transform duration-700`}
         style={{
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
           transformStyle: "preserve-3d",
@@ -23,7 +23,7 @@ const Cardstemplate = ({ color, text, textColor, logo }) => {
       >
         {/* Front Side */}
         <div
-          className={`absolute w-[368px] md:w-[500px] h-[30vh] md:h-[40vh] ${color} ${textColor} !py-6`}
+          className={`absolute w-[350px] md:w-[500px] h-[28vh] md:h-[40vh] ${color} ${textColor} !py-6`}
           style={{
             backfaceVisibility: "hidden",
             background: color,
@@ -44,14 +44,14 @@ const Cardstemplate = ({ color, text, textColor, logo }) => {
             </p>
           </div>
           <div
-            className={`absolute top-44 md:top-58 right-6 text-2xl font-extrabold`}
+            className={`absolute top-44 md:top-58 right-6 text-xl font-extrabold`}
           >
             <h1>{text}</h1>
           </div>
         </div>
         {/* Back Side */}
         <div
-          className={`absolute w-[368px] md:w-[500px] h-[30vh] md:h-[40vh] rounded-2xl ${color} ${textColor} flex flex-col !py-6 `}
+          className={`absolute w-[350px] md:w-[500px] h-[30vh] md:h-[40vh] rounded-2xl ${color} ${textColor} flex flex-col !py-6 `}
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",

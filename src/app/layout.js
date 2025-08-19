@@ -6,6 +6,7 @@ import Loading from "@/components/AppLoader";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
+import Footer from "@/components/Footer";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
         <Analytics />
         <Navbar />
         {children}
+        {/* <Footer/> */}
       </body>
     </html>
   );

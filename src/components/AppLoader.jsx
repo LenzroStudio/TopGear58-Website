@@ -35,13 +35,6 @@ export default function AppLoader({ onComplete, children }) {
           priority
           className="mb-8 animate-pulse"
         />
-        {/* Progress bar */}
-        <div className="w-64 h-1 bg-gray-700 mt-6 overflow-hidden rounded">
-          <div
-            className="h-full bg-white transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          ></div>
-        </div>
       </div>
     );
   }

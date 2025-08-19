@@ -18,12 +18,12 @@ export default function Home() {
       <Hero />
       <Services />
       <History />
-      <div className="!px-[2.5%] bg-black text-white md:!px-[5%] !pb-[5rem] !py-[10%] md:!py-[5%] flex flex-col md:gap-[5rem] items-center justify-center">
+      <div className="!px-[5%] bg-black text-white md:!px-[5%] !pb-[5rem] !py-[3rem] md:!py-[5%] flex flex-col gap-[2rem] md:gap-[5rem] items-center justify-center">
         {/* section-text */}
         <h1 className="text-2xl md:text-4xl lg:text-5xl !px-8 md:!px-16 text-center">
           Be Part of the Vip Club
         </h1>
-        <div className="relative z-10 min-h-[80vh] md:min-h-[90vh] w-full grid md:grid-cols-2  grid-cols-1 items-center justify-center  md:gap-[5rem]">
+        <div className="relative z-10 min-h-[80vh] md:min-h-[90vh] w-full grid md:grid-cols-2  grid-cols-1 gap-3 items-center justify-center  md:gap-[5rem]">
           {/* cards */}
           {cardSide === "FRONT"
             ? FrontcardContent.map((item, index) => {
@@ -58,11 +58,17 @@ export default function Home() {
           scroll={true}
           className="w-full flex items-center justify-center"
         >
-          <Button className={"h-11 w-80 bg-white text-black hover:bg-gray-800 hover:text-white cursor-pointer transition-all duration-500"}>Get your card now</Button>
+          <Button
+            className={
+              "h-11 w-80 bg-gray-800 text-white hover:bg-white hover:text-black rounded-none text-lg cursor-pointer transition-all duration-500 !mt-6 md:!mt-0"
+            }
+          >
+            Get your card now
+          </Button>
         </Link>
       </div>
-      <Location/>
-      <Contact/>
+      <Location />
+      <Contact />
     </div>
   );
 }

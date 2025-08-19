@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-[80vh] !p-[5%] bg-black grid grid-cols-1  md:gap-[3rem]">
+    <div className="min-h-[80vh] md:!p-[5%] bg-black grid grid-cols-1  md:gap-[3rem]">
       <div className="w-full h-full  hidden md:flex flex-col gap-5 text-white items-center !py-6 !px-6">
         <p className="text-3xl  font-bold">
           GOT QUESTIONS? WE'RE HERE TO HELP!
@@ -41,7 +41,7 @@ const Contact = () => {
       </div>
         <form
           onSubmit={onSubmit}
-          className="w-full max-w-2xl mx-auto bg-gray-950 rounded-2xl shadow-2xl p-8 flex flex-col items-center gap-8"
+          className="w-full max-w-2xl mx-auto md:bg-gray-950 rounded-2xl shadow-2xl p-8 flex flex-col items-center gap-8"
         >
           <h2 className="text-3xl font-extrabold text-white text-center mb-2 tracking-tight">
             Contact Us

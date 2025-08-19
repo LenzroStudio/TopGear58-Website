@@ -193,7 +193,7 @@ a::after{
   top: 0;
   width: 0;
   height: 100%;
-  background-color: #ffc845;
+  background-color: var(--color-blue-900);
   transform: skewX(45deg);
   z-index: -1;
   transition: width 1000ms;

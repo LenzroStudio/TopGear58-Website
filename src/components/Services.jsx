@@ -32,16 +32,16 @@ const Services = () => {
   const inView = useInView(ref, { once: false, margin: "-100px" });
 
   return (
-    <div className="bg-white text-black relative overflow-hidden">
+    <div className="bg-black text-white relative overflow-hidden">
       <div
         ref={ref}
-        className="relative z-10 min-h-[80vh] md:min-h-[90vh] !px-[2.5%] md:!px-0 !pb-[5rem] !py-[10%] md:!py-[8%] flex flex-col items-center text-center justify-center gap-[2rem] md:gap-[5rem]"
+        className="relative z-10 min-h-[80vh] md:min-h-[90vh] !px-[2.5%] md:!px-0 !pb-[5rem] !py-[5%] md:!pt-[3%] md:md:!pb-[5%] flex flex-col items-center text-center justify-center gap-[2rem] md:gap-[5rem]"
       >
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl  "
+          className="text-4xl md:text-4xl  "
         >
           OUR TAILORMADE SERVICES
         </motion.h1>
@@ -94,7 +94,9 @@ const Services = () => {
                       if (currentIndex === services.length - 1) {
                         return `calc(50% - ${
                           services.length - 1 + 0.5
-                        } * ${cardWidth}px - ${services.length - 1} * ${gap}px)`;
+                        } * ${cardWidth}px - ${
+                          services.length - 1
+                        } * ${gap}px)`;
                       }
                       return `calc(50% - ${
                         currentIndex + 0.5
@@ -166,9 +168,13 @@ const Services = () => {
                 </AnimatePresence>
               </div>
 
-              <Link href={'/'} className="!my-5">
-                <Button className={"bg-transparent text-black  border font-medium hover:bg-black transition-all duration-700 hover:text-white border-black h-[7vh] !px-[2rem] text-md rounded-none "}>
-                  Discover 
+              <Link href={"/"} className="!my-5">
+                <Button
+                  className={
+                    "bg-white text-black font-semibold tracking-wider  border   transition-all duration-700 hover:text-white border-black h-[5vh] !px-[5rem] !mt-5 text-md rounded-none "
+                  }
+                >
+                  Discover
                 </Button>
               </Link>
             </div>
@@ -177,7 +183,7 @@ const Services = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 md:left-[25%] top-full"
+            className="absolute left-4 md:left-[25%] !mt-3 top-full"
             disabled={currentIndex === 0}
             aria-disabled={currentIndex === 0}
             style={{
@@ -185,12 +191,12 @@ const Services = () => {
               cursor: currentIndex === 0 ? "not-allowed" : "pointer",
             }}
           >
-            <ChevronLeft className="md:w-5 md:h-5 text-black transition-colors" />
+            <ChevronLeft className="md:w-5 md:h-5 text-white transition-colors" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-4 md:right-[25%] top-full"
+            className="absolute right-4 md:right-[25%] !mt-3 top-full"
             disabled={currentIndex === services.length - 1}
             aria-disabled={currentIndex === services.length - 1}
             style={{
@@ -201,7 +207,7 @@ const Services = () => {
                   : "pointer",
             }}
           >
-            <ChevronRight className="md:w-5 md:h-5 text-black transition-colors" />
+            <ChevronRight className="md:w-5 md:h-5 text-white transition-colors" />
           </button>
         </div>
       </div>

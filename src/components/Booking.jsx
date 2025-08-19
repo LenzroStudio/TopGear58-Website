@@ -369,7 +369,7 @@ const Booking = ({ onBack }) => {
     <motion.div
       initial={{ x: 40, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="flex flex-col h-full w-full"
+      className="flex flex-col h-full w-full !px-2 md:!px-0"
     >
       {/* Header */}
       <div className="flex items-center !p-6 border-b border-white/10 flex-shrink-0">

@@ -117,9 +117,9 @@ const History = () => {
   return (
     <div
       ref={sectionRef}
-      className="min-h-[95vh] bg-gray-100 text-black !py-10 md:!py-20 flex flex-col gap-[3rem] "
+      className="min-h-[95vh] bg-gray-950 text-white !py-15 md:!py-20 flex flex-col gap-[3rem] "
     >
-      <h1 className="text-3xl md:text-4xl lg:text-5xl !px-8 md:!px-16">
+      <h1 className="text-3xl md:text-4xl  !px-8 md:!px-16">
         Celebrating 58 Years of Being TopGear58
       </h1>
       <div className="w-full relative flex items-center justify-center overflow-hidden">
@@ -174,16 +174,16 @@ const History = () => {
         {/* Fullscreen button - bottom right */}
         <Button
           onClick={toggleFullscreen}
-          className="absolute bottom-4 right-4 flex items-center justify-center w-[40px] h-[40px] md:w-[100px] md:h-[100px] bg-black/60 !p-0 cursor-pointer backdrop-blur-lg hover:bg-black rounded-full z-10"
+          className="absolute bottom-4 right-4 flex items-center justify-center w-[40px] h-[40px] md:w-[100px] md:h-[100px] bg-white !p-0 cursor-pointer backdrop-blur-lg hover:bg-gray-500 transition-all duration-500 rounded-full z-10"
           style={{
             transform: `scale(${videoScale})`,
             transformOrigin: "center center",
           }}
         >
           {isFullscreen ? (
-            <Minimize className="text-white md:!w-[30px] md:!h-[30px]" />
+            <Minimize className="text-black md:!w-[30px] md:!h-[30px]" />
           ) : (
-            <Maximize className="text-white md:!w-[30px] md:!h-[30px]" />
+            <Maximize className="text-black md:!w-[30px] md:!h-[30px]" />
           )}
         </Button>
       </div>

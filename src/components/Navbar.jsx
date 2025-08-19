@@ -30,22 +30,38 @@ const Navbar = () => {
     // Keep mobile menu open for mobile booking
   };
 
+  const handleDesktopBookingClick = () => {
+    setShowBooking(true);
+    // Keep desktop menu open for desktop booking
+  };
+
   const menuControls = () => {};
   return (
     <div>
       {/* desktop navbar */}
-      <div className="hidden md:grid grid-cols-3 !py-[1rem] !px-[3%] bg-black/90 backdrop-blur-2xl text-white fixed z-50 w-full">
-        {/* navlinks */}
-        <div className="flex items-center justify-start gap-[3rem]">
-          {navlinks.map((item, index) => (
-            <Link
-              href={item.to}
-              key={index}
-              className="cursor-pointer hover:text-red-500 duration-600 transition-all"
-            >
-              <p> {item.link}</p>
-            </Link>
-          ))}
+      <div className="hidden md:grid grid-cols-3 !py-[1rem] !px-[3%] bg-black/70 backdrop-blur-xl text-white fixed z-50 w-full">
+        {/* navlinks desktop sidemenu */}
+        <div>
+          <button
+            onClick={() => setStatus((prev) => !prev)}
+            aria-label={Menustatus ? "Close menu" : "Open menu"}
+            className="relative z-50 flex items-center justify-center w-10 h-10"
+          >
+            <div
+              className={`absolute left-1/2 top-1/2 w-5 h-0.5 bg-white rounded transition-all duration-300 ${
+                Menustatus
+                  ? "rotate-45 -translate-x-1/2 -translate-y-1/2"
+                  : "-translate-x-1/2 -translate-y-1.5"
+              }`}
+            />
+            <div
+              className={`absolute left-1/2 top-1/2 w-5 h-0.5 bg-white rounded transition-all duration-300 ${
+                Menustatus
+                  ? "-rotate-45 -translate-x-1/2 -translate-y-1/2"
+                  : "-translate-x-1/2 translate-y-1.5"
+              }`}
+            />
+          </button>
         </div>
         {/* logo */}
         <Link href={"/"} className="flex items-center justify-center">
@@ -54,16 +70,88 @@ const Navbar = () => {
             alt="Website logo"
             width={120} // set to your logo's actual width in pixels
             height={40} // set to your logo's actual height in pixels
-            className="w-[15vw]"
+            className="w-[10vw]"
           />
         </Link>
         {/* booking button */}
         <div className="flex items-center justify-end ">
-          <Button className="uiverse-btn" onClick={handleBookingClick}>
+          <Button
+            className="bg-zinc-900 hover:bg-white hover:text-black transition-all duration-500 cursor-pointer font-semibold tracking-wider rounded"
+            onClick={handleBookingClick}
+          >
             Book an Appointment
           </Button>
         </div>
       </div>
+
+      {/* Desktop sidemenu */}
+      <AnimatePresence>
+        {Menustatus && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "spring", stiffness: 200, damping: 30 }}
+            className="fixed top-18 left-0 h-screen w-[400px] bg-black text-white z-50 shadow-lg hidden md:block"
+          >
+            <div className="flex flex-col h-full">
+              <div className="flex-1 flex flex-col items-start gap-6 !mt-8">
+                {/* Show booking form or menu items */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key="menu"
+                    className="flex flex-col gap-6 w-full !px-6"
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                      visible: { transition: { staggerChildren: 0.12 } },
+                      hidden: {},
+                    }}
+                  >
+                    {navlinks.map((item, index) => (
+                      <motion.div
+                        key={index}
+                        variants={{
+                          hidden: { x: -40, opacity: 0 },
+                          visible: { x: 0, opacity: 1 },
+                        }}
+                      >
+                        <Link
+                          href={item.to}
+                          className="cursor-pointer text-md tracking-wider  hover:text-red-400 transition-colors duration-300"
+                          onClick={() => setStatus(false)}
+                        >
+                          <p>{item.link}</p>
+                        </Link>
+                      </motion.div>
+                    ))}
+                    <motion.div
+                      variants={{
+                        hidden: { x: -40, opacity: 0 },
+                        visible: { x: 0, opacity: 1 },
+                      }}
+                    ></motion.div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Desktop Overlay */}
+      <AnimatePresence>
+        {Menustatus && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black z-40 hidden md:block"
+            onClick={() => setStatus(false)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Mobile navbar */}
       <div className="md:hidden bg-black/30 backdrop-blur-2xl text-white fixed z-50 w-full">
@@ -108,7 +196,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 200, damping: 30 }}
-              className="fixed top-0 right-0 h-screen w-full bg-black text-white z-50 shadow-lg"
+              className="fixed top-0 right-0 h-screen w-full bg-black text-white z-50 shadow-lg md:hidden"
             >
               <div className="flex flex-col h-full md:flex-row">
                 {/* Close button at top right of sidebar */}
@@ -163,7 +251,7 @@ const Navbar = () => {
                         >
                           <Button
                             className={
-                              "rounded-none border border-[#ff2c2c] bg-black transition-all duration-500 cursor-pointer hover:border-white hover:text-black hover:bg-red-500 "
+                              "rounded bg-white text-black font-semibold tracking-wider transition-all duration-500 cursor-pointer hover:border-white hover:text-white  md:hover:text-black md:hover:bg-red-500 "
                             }
                             onClick={handleMobileBookingClick}
                           >
@@ -199,7 +287,6 @@ const Navbar = () => {
                             <div className="w-full">
                               {/* Embedded Map */}
                               <div className="w-full overflow-hidden mb-2">
-                                `
                                 <iframe
                                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d34569.80672527318!2d36.8380108!3d-1.2792793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11a66a8b5077%3A0x52d611a099b8730e!2sTopGear58!5e1!3m2!1sen!2ske!4v1754471731476!5m2!1sen!2ske"
                                   width="100%"
@@ -209,7 +296,6 @@ const Navbar = () => {
                                   loading="lazy"
                                   referrerPolicy="no-referrer-when-downgrade"
                                 ></iframe>
-                                `
                               </div>
                               {/* Socials */}
                               <div className="flex flex-col gap-0.5 mt-2 !py-7 !px-6 text-black">
@@ -257,7 +343,7 @@ const Navbar = () => {
                                   href="https://twitter.com/topgear58"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-sm"
+                                  className="flex items-center gap-4 py-2 border-b-2 border-gray-200 font-bold text-xs"
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
