@@ -162,7 +162,7 @@ const Navbar = () => {
               alt="Website logo"
               width={120} // set to your logo's actual width in pixels
               height={40} // set to your logo's actual height in pixels
-              className="w-[42vw]"
+              className="w-[30vw]"
             />
           </Link>
           <div>
